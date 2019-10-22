@@ -1,0 +1,1 @@
+{"version":3,"sources":["screen.css"],"names":[],"mappings":"AAYA,gBACE,YACF,CAEA,UACE,QACF","file":"screen.css","sourcesContent":[".kg-width-wide {\n\n}\n\n.kg-width-full {\n\n}\n\n.kg-gallery-container {\n\n}\n\n.kg-gallery-row {\n  display: none;\n}\n\n.watching {\n  yesy:yes;\n}\n"]}
