@@ -24,6 +24,7 @@
   </script />
 
     <link rel="stylesheet" type="text/css" href="{{asset "built/selection-sharer.css"}}" />
+    <script src="https://cdn.jsdelivr.net/npm/ghost-search@1.0.1/dist/ghost-search.min.js"></script>
 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
@@ -36,8 +37,6 @@
         {{!-- The footer at the very bottom of the screen --}}
         <footer class="">
         </footer>
-
-
 
     <script>
         var images = document.querySelectorAll('.kg-gallery-image img');
@@ -63,12 +62,35 @@
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}
 
+    {{!-- Searchbox --}}
+    <script type="text/javascript" src="https://unpkg.com/@tryghost/content-api@1.3.2/umd/content-api.min.js"></script>
+    <script type="text/javascript" src="{{asset "built/ghost-search.js"}}"></script>
+
+
     {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
     {{ghost_foot}}
 
-    <script type="text/javascript" src="{{asset "built/selection-sharer.js"}}" /> </script>
-    <script>
-    $('p').selectionSharer();
+    <script type="text/javascript">
+        let ghostSearch = new GhostSearch({
+            key: '65eb4084561f8094f6e5178d3a',
+            input: '#ghost-search-field',
+            host: 'http://localhost:2368',
+            results: '#my-custom-results',
+            button: '#my-searchbutton',
+            options: {
+            keys: [
+                'title',
+                'plaintext'
+            ],
+        },
+        api: {
+            resource: 'posts',
+            parameters: {
+                fields: ['title', 'slug', 'plaintext'],
+                formats: 'plaintext',
+            },
+        },
+        })
     </script>
 
 </body>

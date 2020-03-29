@@ -1,5 +1,4 @@
 <nav class="site-nav">
-    <div class="site-nav-left">
 {{!--
             {{#if @site.logo}}
                 <a class="site-nav-logo" href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a>
@@ -9,8 +8,14 @@
 --}}
     {{#if @site.navigation}}
         {{navigation}}
+        <form>
+          <input id="ghost-search-field">
+          <input value="Surch" type="submit" id="my-searchbutton">
+      </form>
+
+      <div id="my-custom-results"></div>
+
     {{/if}}
 
-    </div>
 
 </nav>

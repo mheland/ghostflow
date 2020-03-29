@@ -1,0 +1,19 @@
+{{!< default}}
+
+
+<header class="">
+    {{@site.title}}
+    {{> "site-nav"}}
+
+</header>
+
+<h1>Special section INFOSEC</h1>
+hjhj
+
+{{#get "posts" filter="tag:info" order="title asc"}}
+{{#foreach posts}}
+    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+    {{!> "post-card"}}
+    <A href="{{url}}"><h3>{{title}}</h3></a>
+{{/foreach}}
+{{/get}}
